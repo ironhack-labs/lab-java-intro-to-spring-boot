@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/lab-java-intro-to-spring-boot?serverTimezone=UTC&createDatabaseIfNotExist=true
+    username: ironhack
+    password: ironhack2024
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    defer-datasource-initialization: true
+  sql:
+    init:
+      schema-locations: classpath:schema.sql
+      data-locations: classpath:data.sql
+      mode: always
+
+spring-doc:
+  swagger-ui:
+    path: /swagger-ui-custom.html
+    operationsSorter: method
+
+  application:
+    name: lab-java-intro-to-spring-boot
