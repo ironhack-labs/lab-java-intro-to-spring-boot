@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChatHistory">
+    <accountData>
+      <list>
+        <AccountData>
+          <accountId value="VXNlcjo0Mzg1NDk=" />
+          <chats>
+            <list>
+              <chat>
+                <internalId value="5a0e6b60-167f-4695-bfb1-f81fe723f0f3" />
+                <llm>
+                  <llm>
+                    <model value="anthropic/claude-3-sonnet-20240229" />
+                    <provider value="Anthropic" />
+                    <title value="Claude 3 Sonnet" />
+                  </llm>
+                </llm>
+              </chat>
+              <chat>
+                <internalId value="ac45ffa0-d971-4efb-99e9-23a666d9e437" />
+                <llm>
+                  <llm>
+                    <model value="anthropic/claude-3-sonnet-20240229" />
+                    <provider value="Anthropic" />
+                    <title value="Claude 3 Sonnet" />
+                  </llm>
+                </llm>
+                <messages>
+                  <list>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="A '@JoinColumn' references a column named 'employee_Id' but the target entity 'com.ironhack.springboot.model.Employee' has no property which maps to this column" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="The error message you're receiving indicates that the `@JoinColumn` annotation is referencing a column named `employee_Id`, but the target entity (`com.ironhack.springboot.model.Employee`) does not have a property that maps to this column.&#10;&#10;To resolve this issue, you need to ensure that the `@JoinColumn` annotation is correctly referencing a property in the `Employee` entity class. Here are a few steps you can take:&#10;&#10;1. Check the `Employee` entity class and make sure that it has a property that corresponds to the `employee_Id` column. This property should be annotated with `@Id` or `@Column(name = &quot;employee_Id&quot;)`.&#10;&#10;2. If the property exists, ensure that the `@JoinColumn` annotation is referencing the correct property name. The `name` attribute of `@JoinColumn` should match the property name in the `Employee` entity class.&#10;&#10;3. If the property name is different from the column name, you can use the `referencedColumnName` attribute of `@JoinColumn` to specify the column name. For example:&#10;&#10;```java&#10;@ManyToOne&#10;@JoinColumn(name = &quot;employee_id&quot;, referencedColumnName = &quot;id&quot;)&#10;private Employee employee;&#10;```&#10;&#10;In this example, the `@JoinColumn` annotation specifies that the `employee_id` column in the current entity should reference the `id` column in the `Employee` entity.&#10;&#10;4. If the issue persists, double-check the spelling and casing of the property and column names to ensure they match correctly.&#10;&#10;By following these steps, you should be able to resolve the `@JoinColumn` reference issue and correctly map the relationship between the entities." />
+                    </message>
+                  </list>
+                </messages>
+                <updatedAt value="2024-06-22T17:04:23.811771" />
+              </chat>
+            </list>
+          </chats>
+          <defaultLlm>
+            <llm>
+              <model value="anthropic/claude-3-sonnet-20240229" />
+              <provider value="Anthropic" />
+              <title value="Claude 3 Sonnet" />
+            </llm>
+          </defaultLlm>
+        </AccountData>
+      </list>
+    </accountData>
+  </component>
+</project>
