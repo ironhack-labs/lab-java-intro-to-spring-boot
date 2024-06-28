@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/hospital
+    username: root
+    password: Hamidatu54!
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
