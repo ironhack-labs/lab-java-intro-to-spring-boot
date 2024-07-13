@@ -1,0 +1,12 @@
+
+spring:
+  datasource:
+  driverClassName: com.mysql.cj.jdbc.Driver
+    url:jdbc:mysql://localhost:3306/dragons_new_db
+  username: root
+  password: Oluwadarasimi4u
+jpa:
+  hibernate:
+      ddl-auto:
+  create show-sql: true
+
