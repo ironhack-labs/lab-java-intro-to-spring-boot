@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/hospital_db
+    username: root
+    password: 1007.Seso
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
