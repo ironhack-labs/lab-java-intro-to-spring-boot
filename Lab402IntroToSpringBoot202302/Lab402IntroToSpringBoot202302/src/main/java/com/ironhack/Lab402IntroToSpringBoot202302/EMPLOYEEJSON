@@ -1,0 +1,74 @@
+[
+    {
+        "employeeId": 156545,
+        "department": "orthopaedic",
+        "name": "Paolo Rodriguez",
+        "status": "ON_CALL",
+        "hospital": {
+            "hospId": 2,
+            "hospName": "Hospital Norte",
+            "region": "Cataluña",
+            "city": "Barcelona"
+        }
+    },
+    {
+        "employeeId": 166552,
+        "department": "pulmonary",
+        "name": "Maria Lin",
+        "status": "ON",
+        "hospital": {
+            "hospId": 3,
+            "hospName": "Hospital del Mar",
+            "region": "Cataluña",
+            "city": "Barcelona"
+        }
+    },
+    {
+        "employeeId": 172456,
+        "department": "psychiatric",
+        "name": "John Paul Armes",
+        "status": "OFF",
+        "hospital": {
+            "hospId": 4,
+            "hospName": "Hospital Virgen del Rocío",
+            "region": "Andalucía",
+            "city": "Sevilla"
+        }
+    },
+    {
+        "employeeId": 356712,
+        "department": "cardiology",
+        "name": "Alonso Flores",
+        "status": "ON_CALL",
+        "hospital": {
+            "hospId": 4,
+            "hospName": "Hospital Virgen del Rocío",
+            "region": "Andalucía",
+            "city": "Sevilla"
+        }
+    },
+    {
+        "employeeId": 564134,
+        "department": "immunology",
+        "name": "Sam Ortega",
+        "status": "ON",
+        "hospital": {
+            "hospId": 1,
+            "hospName": "Hospital Central",
+            "region": "Madrid",
+            "city": "Madrid"
+        }
+    },
+    {
+        "employeeId": 761527,
+        "department": "cardiology",
+        "name": "German Ruiz",
+        "status": "OFF",
+        "hospital": {
+            "hospId": 1,
+            "hospName": "Hospital Central",
+            "region": "Madrid",
+            "city": "Madrid"
+        }
+    }
+]
