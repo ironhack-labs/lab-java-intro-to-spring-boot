@@ -4,10 +4,7 @@ import com.example.LAB_Intro_To_Spring.model.Employee;
 import com.example.LAB_Intro_To_Spring.model.Patient;
 import com.example.LAB_Intro_To_Spring.service.HospitalService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,4 +33,18 @@ public class ApplicationController {
             return doc!=null && doc.getDepartment().equalsIgnoreCase(dept);
         }).toList();
     }
-}
+    @GetMapping("/patients")
+    public List<Patient> getAllPatients(){
+        return hospitalService.getAllPatients();
+    }
+    @GetMapping("/patients/{id}")
+    public Patient getPatientById(@PathVariable int id) {
+        return hospitalService.getPatientById(id);
+    }
+    @GetMapping("/patients/dob")
+    public List<Patient> getPatientsByDob(@RequestParam String start, @RequestParam String end) {
+        return hospitalService.getPatientsByBirthRange(start, end);
+    }
+    @GetMapping("/patients/doctor-off")
+    public List<Patient> getPatientsByDoctorOff() { return hospitalService.getPatientsWithDoctorOff(); }
+ }

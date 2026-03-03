@@ -46,7 +46,22 @@ public class HospitalService {
     public List<Employee> getEmployeeByStatus(String status){
         return employees.stream().filter(e->e.getStatus().equalsIgnoreCase(status)).toList();
     }
-
+    public List<Employee> getDoctorsByDepartment(String dept){
+        return employees.stream().filter(e->
+                e.getDepartment().equalsIgnoreCase(dept)).toList();
+    }
+    public Patient getPatientById(int id){
+        return patients.stream().filter(p->p.getPatient_id()==id).findFirst().orElse(null);
+    }
+    public List<Patient> getPatientsByBirthRange(String start,String end){
+        return  patients.stream().filter(p->p.getDate_of_birth().compareTo(start)>=0 && p.getDate_of_birth().compareTo(end)<=0).toList();
+    }
+    public List<Patient> getPatientsWithDoctorOff(){
+        return patients.stream().filter(p->{
+            Employee doc=getEmployeeById(p.getAdmitted_by());
+            return doc!=null&&doc.getStatus().equalsIgnoreCase("OFF");
+        }).toList();
+    }
     public List<Patient> getAllPatients() {
         return patients;
     }
