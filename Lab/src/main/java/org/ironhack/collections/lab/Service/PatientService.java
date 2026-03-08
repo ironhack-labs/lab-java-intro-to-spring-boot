@@ -1,5 +1,6 @@
 package org.ironhack.collections.lab.Service;
 
+import org.ironhack.collections.lab.Model.Employee;
 import org.ironhack.collections.lab.Model.Patient;
 import org.springframework.stereotype.Service;
 
@@ -8,6 +9,12 @@ import java.util.List;
 
 @Service
 public class PatientService {
+    private final EmployeeService employeeService;
+
+    public PatientService(EmployeeService employeeService) {
+        this.employeeService = employeeService;
+    }
+
     private List<Patient> patients = List.of(
             new Patient(1,"Jaime Jordan", LocalDate.parse("1984-03-02"),564134),
             new Patient(2,"Marian Garcia", LocalDate.parse("1972-01-12"),564134),
@@ -15,6 +22,8 @@ public class PatientService {
             new Patient(4,"Steve McDuck", LocalDate.parse("1931-11-10"),761527),
             new Patient(5,"Marian Garcia", LocalDate.parse("1999-02-15"),172456)
     );
+
+
 
     public List<Patient> getAllPatients() {
         return patients;
@@ -25,5 +34,27 @@ public class PatientService {
                 .filter(p -> p.getPatientId() == id)
                 .findFirst()
                 .orElse(null);
+    }
+
+    public List<Patient> getPatientsByDateRange(LocalDate start, LocalDate end) {
+        return patients.stream().filter(p -> !p.getDateOfBirth().isBefore(start) && !p.getDateOfBirth().isAfter(end)).toList();
+    }
+
+    public List<Patient> getPatientsWithDoctorOff() {
+        return patients.stream()
+                .filter(p -> {
+                    Employee doctor = employeeService.getEmployeeById(p.getAdmittedBy());
+                    return doctor != null && doctor.getStatus().equalsIgnoreCase("OFF");
+                })
+                .toList();
+    }
+
+    public List<Patient> getPatientsByDoctorDepartment(String department){
+        return patients.stream()
+                .filter(p -> {
+                    Employee doctor = employeeService.getEmployeeById(p.getAdmittedBy());
+                    return doctor != null && doctor.getDepartment().equalsIgnoreCase(department);
+                })
+                .toList();
     }
 }

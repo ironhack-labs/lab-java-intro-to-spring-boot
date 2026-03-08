@@ -2,11 +2,9 @@ package org.ironhack.collections.lab.Controller;
 
 import org.ironhack.collections.lab.Model.Patient;
 import org.ironhack.collections.lab.Service.PatientService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -26,5 +24,20 @@ public class PatientController {
     @GetMapping("/{id}")
     public Patient getPatientById(@PathVariable int id){
         return patientService.getPatientById(id);
+    }
+
+    @GetMapping("/date-range")
+    public List<Patient> getPatientsByDateRange(@RequestParam LocalDate start,
+                                                @RequestParam LocalDate end){
+        return patientService.getPatientsByDateRange(start, end);
+    }
+
+    @GetMapping("/patients-with-doctor-off")
+    public List<Patient> getPatientsWithDoctorOff(){
+        return patientService.getPatientsWithDoctorOff();
+    }
+    @GetMapping("/by-doctor-department")
+    public List<Patient> getPatientsByDoctorDepartment(@RequestParam String department){
+        return patientService.getPatientsByDoctorDepartment(department);
     }
 }
